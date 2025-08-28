@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{ object.model }}
+{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-center my-5">
+        <div class="card" style="width: 30rem;">
+            <img src="{{ object.photo.url }}" class="card-img-top" alt="{{ object.model }} - {{ object.brand }}">
+            <div class="card-body">
+                <h5 class="card-title"> {{ object.brand }}  {{ object.model }} </h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Made year: {{ object.factory_year }} </li>
+                <li class="list-group-item">Model year: {{ object.model_year }} </li>
+                <li class="list-group-item">Plate: {% if not object.plate %} Not in Record {% else %} {{ object.plate }} {% endif %}</li>
+                <li class="list-group-item">Price: {{ object.value }} </li>
+            </ul>
+            
+        </div>
+    </div>
+{% endblock %}
