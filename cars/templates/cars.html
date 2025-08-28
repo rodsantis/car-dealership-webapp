@@ -15,15 +15,17 @@
         </div>
         <div class="row row-cols-1 row-cols-md-3 g-4 my-3 mx-3">
             {% for car in cars %}
-                <div class="col">
-                    <div class="card h-100">
-                    <img src="{{ car.photo.url }}" class="card-img-top" alt="{{ car.model }} - {{ car.brand }}" style="width: auto; height: auto;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ car.brand}} - {{ car.model }}</h5>
-                        <p class="card-text"> Model year {{ car.factory_year }}, at ${{ car.value }} </p>
+                <a href="{% url 'car_detail' car.pk %}" style="text-decoration: none;" >
+                    <div class="col">
+                        <div class="card h-100">
+                        <img src="{{ car.photo.url }}" class="card-img-top" alt="{{ car.model }} - {{ car.brand }}" style="width: auto; height: auto;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ car.brand}} - {{ car.model }}</h5>
+                            <p class="card-text"> Model year {{ car.factory_year }}, at ${{ car.value }} </p>
+                        </div>
+                        </div>
                     </div>
-                    </div>
-                </div>
+                </a>
             {% endfor %}
         </div>
     {% endblock %}
