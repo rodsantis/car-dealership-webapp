@@ -17,9 +17,12 @@
                 <li class="list-group-item">Plate: {% if not object.plate %} Not in Record {% else %} {{ object.plate }} {% endif %}</li>
                 <li class="list-group-item">Price: {{ object.value }} </li>
             </ul>
-            <div class="card-body">
-                <a href="{% url 'car_update' pk=object.pk %}" class="card-link">Update</a>
-            </div>
+            {% if user.is_authenticated %}
+                <div class="card-body">
+                    <a href="{% url 'car_update' pk=object.pk %}" class="btn btn-primary">Update</a>
+                    <a href="{% url 'car_delete' pk=object.pk %}" class="btn btn-danger">Delete</a>
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

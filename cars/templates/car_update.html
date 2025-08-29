@@ -12,6 +12,7 @@
             {{ form.as_table }}
         </table>
         <input type="submit" value="Update" class="btn btn-primary">
+        <a href="{% url 'car_delete' pk=object.pk %}" class="btn btn-danger">Delete</a>
         <a href="{% url 'cars_list' %}" class="btn btn-secondary">Cancel</a>
     </form>
 {% endblock %}
