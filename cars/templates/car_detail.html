@@ -16,6 +16,9 @@
                 <li class="list-group-item">Model year: {{ object.model_year }} </li>
                 <li class="list-group-item">Plate: {% if not object.plate %} Not in Record {% else %} {{ object.plate }} {% endif %}</li>
                 <li class="list-group-item">Price: {{ object.value }} </li>
+                {% if object.bio %}
+                    <li class="list-group-item">Description: {{ object.bio }} </li>
+                {% endif %}
             </ul>
             {% if user.is_authenticated %}
                 <div class="card-body">
