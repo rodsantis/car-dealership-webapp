@@ -18,11 +18,17 @@
                 <a href="{% url 'car_detail' car.pk %}" style="text-decoration: none;" >
                     <div class="col">
                         <div class="card h-100">
-                        <img src="{{ car.photo.url }}" class="card-img-top" alt="{{ car.model }} - {{ car.brand }}" style="width: auto; height: auto;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ car.brand}} - {{ car.model }}</h5>
-                            <p class="card-text"> Model year {{ car.factory_year }}, at ${{ car.value }} </p>
-                        </div>
+                            {% if car.photo %}
+                                <img src="{{ car.photo.url }}" class="card-img-top" alt="{{ car.model }} - {{ car.brand }}" style="width: auto; height: auto;">
+                            {% else %}
+                                <div style="margin: 7vw;">
+                                    <img src="..." alt="No photo available" class="card-img-top" style="width: auto; height: auto;">
+                                </div>
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ car.brand}} - {{ car.model }}</h5>
+                                <p class="card-text"> Model year {{ car.factory_year }}, at ${{ car.value }} </p>
+                            </div>
                         </div>
                     </div>
                 </a>

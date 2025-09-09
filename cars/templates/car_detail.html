@@ -7,8 +7,14 @@
 {% block body %}
     <div class="d-flex justify-content-center my-5">
         <div class="card" style="width: 40rem;">
-            <img src="{{ object.photo.url }}" class="card-img-top" alt="{{ object.model }} - {{ object.brand }}">
-            <div class="card-body">
+            {% if object.photo %}
+                <img src="{{ object.photo.url }}" class="card-img-top" alt="{{ object.model }} - {{ object.brand }}">
+            {% else %}
+                <div style="margin: 7vw;">
+                    <img src="..." alt="No photo available" class="card-img-top" style="width: auto; height: auto;">
+                </div>
+            {% endif %}
+                <div class="card-body">
                 <h5 class="card-title"> {{ object.brand }}  {{ object.model }} </h5>
             </div>
             <ul class="list-group list-group-flush">

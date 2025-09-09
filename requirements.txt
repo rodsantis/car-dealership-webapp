@@ -2,4 +2,4 @@
 Django==5.2.4
 Pillow
 Bootstrap v5.3
-openai
+openai==1.106.1
