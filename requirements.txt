@@ -3,4 +3,4 @@ Django==5.2.4
 Pillow
 Bootstrap v5.3
 openai==1.106.1
-psycopg==3.2.10
+psycopg[binary,pool]==3.2.10
